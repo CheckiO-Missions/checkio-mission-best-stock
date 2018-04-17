@@ -1,4 +1,4 @@
-def best_stock(data):
+def best_stock(data: dict) -> str:
     # your code here
     return 'GOOG'
 
