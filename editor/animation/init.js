@@ -6,6 +6,7 @@ requirejs(['ext_editor_io', 'jquery_190'],
         var $tryit;
 
         var io = new extIO({
+            multipleArguments: true,
             functions: {
                 python: 'best_stock',
                 js: 'bestStock'

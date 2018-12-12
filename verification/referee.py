@@ -2,6 +2,7 @@
 from checkio.signals import ON_CONNECT
 from checkio import api
 from checkio.referees.io import CheckiOReferee
+from checkio.referees import cover_codes
 
 from tests import TESTS
 
@@ -12,5 +13,9 @@ api.add_listener(
         function_name={
             "python": "best_stock",
             "js": "bestStock"
+        },
+        cover_code={
+            'python-3': cover_codes.unwrap_args,
+            'js-node': cover_codes.js_unwrap_args
         }
     ).on_ready)
