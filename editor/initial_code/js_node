@@ -1,19 +1,20 @@
 "use strict";
 
-function sumTwo(a, b) {
-    // sums two passed arguments
+function bestStock(a) {
 
     // your code here
-    return 0;
+    return undefined;
 }
 
 var assert = require('assert');
 if (!global.is_checking) {
-    console.log('Example:')
-    console.log(sumTwo(3, 2))
+    console.log('Example:');
+    console.log(bestStock({"CAC": 10.0, "ATX": 390.2, "WIG": 1.2}));
 
     // These "asserts" are used for self-checking and not for an auto-testing
-    assert.equal(sumTwo(3, 2), 5)
-    assert.equal(sumTwo(5, 7), 12)
+    assert.equal(bestStock({"CAC": 10.0, "ATX": 390.2, "WIG": 1.2}), "ATX");
+    assert.equal(bestStock({"CAC": 91.1, "ATX": 1.01, "TASI": 120.9}), "TASI");
+
     console.log("Coding complete? Click 'Check' to earn cool rewards!");
 }
+    
