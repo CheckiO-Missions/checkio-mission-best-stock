@@ -21,16 +21,12 @@
     </p>
 
 {% if interpreter.slug == "js-node" %}
-<pre class="brush: javascript">bestStock({
-    'CAC': 10.0,
-    'ATX': 390.2,
-    'WIG': 1.2
-}) == 'ATX'
-bestStock({
-    'CAC': 91.1,
-    'ATX': 1.01,
-    'TASI': 120.9
-}) == 'TASI'
+<pre class="brush: javascript">bestStock({'ATX': 390.2,
+  'CAC': 10.0,
+  'WIG': 1.2}) == 'ATX'
+bestStock({'ATX': 1.01,
+  'CAC': 91.1,
+  'TASI': 120.9}) == 'TASI'
 </pre>
 {% else %}
 <pre class="brush: python">best_stock({
