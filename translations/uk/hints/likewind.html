@@ -1,0 +1,40 @@
+<body data-author="freeman_lex">
+
+<div class="question-answer">
+    <div class="question">
+        Я уявлення не маю, як вирішити це завдання.
+    </div>
+    <div class="answer">
+        Перш за все, тобі потрібно дві змінні: одна для максимальної ціни, інша - для відповідного тікеру акції.
+        Тоді, перебираючи всі значення в словнику, оновлювати значення обох змінних за умови, що ціна поточного
+        тікеру вища за ту, яка зберігається у відповідній змінній. Після проходження всього словника, повернути
+        значення тієї змінної, що зберігала тікер акції. 
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Але як порівняти всі ціни по черзі?
+    </div>
+    <div class="answer">
+        Використай для цього цикл for та вбудований метод словників items().
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Мені потрібно побачити це у вигляді коду.
+    </div>
+    <div class="answer">
+        Розв'язок задачі з урахуванням попередніх рекомендацій матиме вигляд:
+        <pre class="brush: python">
+def best_stock(data):    
+    max_price = 0
+    answer = ''
+    for k, v in data.items():
+        if v > max_price:
+            max_price = v
+            answer = k
+    return answer</pre>
+    </div>
+</div>
+
+</body>
