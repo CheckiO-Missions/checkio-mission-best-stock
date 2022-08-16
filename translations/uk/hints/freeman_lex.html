@@ -1,0 +1,97 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        Я уявлення не маю, як розв'язати цю місію.
+    </div>
+    <div class="answer">
+        Оскільки вхідний аргумент функції - це <a target="_blank" href="https://www.w3schools.com/python/python_dictionaries.asp">словник</a>,
+        тобі варто про них прочитати.
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Я прочитав, але не розумію, який саме інструмент мені потрібен.
+    </div>
+    <div class="answer">
+        Тобі потрібен метод словників <a target="_blank" href="https://www.w3schools.com/python/python_dictionaries_access.asp">get()</a>.
+        Він дозволяє отримати значення зі словника за його ключем:     
+<br />
+<br />
+        <pre class="brush: python">
+some_dict = {'a': 1, 'b': 2}
+some_dict[a] == some_dict.get('a') --> 1
+        </pre>
+        Метод 'get' особливо корисний тим, що може повертати значення за
+        замовчуванням у випадку відсутності ключа в словнику, із другим параметром:
+        some_dict.get('c', 3) (у цій місії тобі це не знадобиться) і він може
+        сам служити аргументом функції. 
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Це цікаво, але я досі не розумію, як це утт використати.
+    </div>
+    <div class="answer">
+        Оскільки тобі потрібна максимальна величина, то тобі також слід використати
+        вбудовану функцію <a target="_blank" href="https://docs.python.org/3/library/functions.html#max">max()</a>,
+        яка може приймати додатковий аргумент 'key' як функцію впорядкування. 
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Мені потрібна допомога із продовженням місії.
+    </div>
+    <div class="answer">
+        Тобі слід скомбінувати дві попередні підказки: використай функцію max()
+        із першим аргументом - твоїм вхідним словником,і аргументом 'key'- 
+        метод 'get' як функцію впорядкування:
+<br />
+<br />
+        <pre class="brush: python">
+max(data, key = data.get)
+        </pre>
+        Цей вираз означає, що під час ітерації через 'data' (ключами), для кожного
+        ключа розраховується функція впорядкування: береться значення для цього ключа.
+        З функцією max() ці значення порівнюються і повертається найбільше.
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        То як має виглядати моє остаточне рішення?
+    </div>
+    <div class="answer">
+        Тобі слід лише додати визначення функції і повернути результат max():
+<br />
+<br />
+        <pre class="brush: python">
+def best_stock(data: dict[str, float]) -> str:
+
+    return max(data, key = data.get)
+        </pre>
+        Є і інші розв'язки, які ти зможеш побачити після того, як твій розв'язок
+        успішно пройде всі тести. Наприклад, розгорнутіше покрокове рішення:
+        <br />
+        <br />
+        <pre class="brush: python">
+def best_stock(data):
+
+    max_price = 0
+    answer = ''
+    for k, v in data.items():
+        if v > max_price:
+            max_price = v
+            answer = k
+            
+    return answer
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Дякую! Тепер я знаю і розумію більше! Все працює як слід!
+    </div>
+    <div class="answer">
+        Приємно це чути!
+    </div>
+</div>
+</body>

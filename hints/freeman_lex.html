@@ -1,0 +1,97 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        I have no idea how to start solving this mission.
+    </div>
+    <div class="answer">
+        Since function input is a <a target="_blank" href="https://www.w3schools.com/python/python_dictionaries.asp">dictionary</a>,
+        you should read about them.
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        I read, but don't understand what exact instrument I need.
+    </div>
+    <div class="answer">
+        You need <a target="_blank" href="https://www.w3schools.com/python/python_dictionaries_access.asp">get()</a> dictionary method.
+        It allows to receive value from dictionary by its key:     
+<br />
+<br />
+        <pre class="brush: python">
+some_dict = {'a': 1, 'b': 2}
+some_dict['a'] == some_dict.get('a') --> 1
+        </pre>
+        'Get' method is useful, because it may return default value in case of
+        absence the key in dictionary with second parameter: some_dict.get('c', 3)
+        (you don't need it in this particular mission) and it may
+        serve as a function argument itself. 
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        That is interesting, but I still don't see, how to use it in this mission.
+    </div>
+    <div class="answer">
+        Since you need maximum item, you also need to use build-in function
+        <a target="_blank" href="https://docs.python.org/3/library/functions.html#max">max()</a>,
+        which may take additional argument 'key' with ordering function. 
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        I need help with proceeding the mission.
+    </div>
+    <div class="answer">
+        You need to combine two previous hints: use max() function with first
+        argument - your dictionary, and the 'key' argument - 'get' as ordering
+        function:
+<br />
+<br />
+        <pre class="brush: python">
+max(data, key = data.get)
+        </pre>
+        This expression means, that while iterating over 'data' (keys), for each
+        key ordering function is calculated: value for this key is taking. With
+        max() function these values are compared and maximum returned.
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        So how final solution should look like?
+    </div>
+    <div class="answer">
+        You just need to add function declaration itself and return result of max():
+<br />
+<br />
+        <pre class="brush: python">
+def best_stock(data: dict[str, float]) -> str:
+
+    return max(data, key = data.get)
+        </pre>
+        There are other solution you be able to see when your solution passes all
+        test successfully. For example, wider step-by-step solution:
+        <br />
+        <br />
+        <pre class="brush: python">
+def best_stock(data):
+
+    max_price = 0
+    answer = ''
+    for k, v in data.items():
+        if v > max_price:
+            max_price = v
+            answer = k
+
+    return answer
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Thanks! I know and understand more now! Everything works fine!
+    </div>
+    <div class="answer">
+        Glad to here it!
+    </div>
+</div>
+</body>
