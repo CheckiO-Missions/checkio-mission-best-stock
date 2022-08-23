@@ -68,8 +68,15 @@ def best_stock(data: dict[str, float]) -> str:
 
     return max(data, key = data.get)
         </pre>
-        Є і інші розв'язки, які ти зможеш побачити після того, як твій розв'язок
-        успішно пройде всі тести. Наприклад, розгорнутіше покрокове рішення:
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Покажи мені більше розв'язків! <br />
+        Адже я хочу бути справжнім Python ніндзя!
+    </div>
+    <div class="answer">
+        Звісно, тримай!
         <br />
         <br />
         <pre class="brush: python">
@@ -81,9 +88,40 @@ def best_stock(data: dict[str, float]) -> str:
         if v > max_price:
             max_price = v
             answer = k
-            
+
     return answer
         </pre>
+        Це розгорнуте покрокове рішення, де ми проходимо по словнику,
+        порівнюємо кожне значення із попередньо проголошеним і зберігаємо більшу
+        ціну і тікер акції.
+        <br />
+        <br />
+        <pre class="brush: python">
+def best_stock(data: dict[str, float]) -> str:
+
+    return max(data, key=data.__getitem__)
+    # або
+    return max(data, key=lambda x: data[x])
+        </pre>
+        Рішення із підказок може також бути записане в таких формах.
+        <br />
+        <br />
+        <pre class="brush: python">
+from functools import reduce
+
+
+def best_stock(data):
+
+    return reduce(lambda x,y: [x,y][y[1] > x[1]], data.items())[0]
+        </pre>
+        Використовуючи попередньо імпортовану функцію reduce ми беремо перші дві пари
+        ключа-значення, зберігаємо одну із більшим значенням (ціна), беремо третю пару
+        і порівнюємо із попереднім "переможцем" і так далі.
+        Повертаємо тікер акції з пари, що залишилася в кінці. 
+        <br />
+        <br />
+        Тисни на "Best solutions" в меню місії і ти побачиш значно більше її
+        розв'язків! 
     </div>
 </div>
 <div class="question-answer">

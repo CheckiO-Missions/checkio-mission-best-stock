@@ -68,8 +68,15 @@ def best_stock(data: dict[str, float]) -> str:
 
     return max(data, key = data.get)
         </pre>
-        There are other solution you be able to see when your solution passes all
-        test successfully. For example, wider step-by-step solution:
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Show me more solutions! <br />
+        'Cause I wanna be a real Python ninnjaa!
+    </div>
+    <div class="answer">
+        Sure, grab it!
         <br />
         <br />
         <pre class="brush: python">
@@ -84,6 +91,35 @@ def best_stock(data: dict[str, float]) -> str:
 
     return answer
         </pre>
+        This is a clear step-by-step solution, where we iterate over the dictionary,
+        compare each value with pre-declared and store bigger price and its ticker.
+        <br />
+        <br />
+        <pre class="brush: python">
+def best_stock(data: dict[str, float]) -> str:
+
+    return max(data, key=data.__getitem__)
+    # or
+    return max(data, key=lambda x: data[x])
+        </pre>
+        The hint solution may be written in these forms as well.
+        <br />
+        <br />
+        <pre class="brush: python">
+from functools import reduce
+
+
+def best_stock(data):
+
+    return reduce(lambda x,y: [x,y][y[1] > x[1]], data.items())[0]
+        </pre>
+        Using pre-imported reduce function we are taking first two key-value pairs, 
+        keep ones with bigger price, take third pair and compare with previous
+        "winner" and so on. Return the ticker from the pair that remains.
+        <br />
+        <br />
+        Click on "Best solutions" at mission menu and you will more much more
+        solutions for that mission.
     </div>
 </div>
 <div class="question-answer">
