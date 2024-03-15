@@ -1,0 +1,133 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        Ich habe keine Ahnung, wie ich mit der Lösung dieser Aufgabe beginnen soll.
+    </div>
+    <div class="answer">
+        Da die Funktion input eine <a target="_blank" href="https://www.w3schools.com/python/python_dictionaries.asp">dictionary</a> ist,
+        sollten Sie darüber lesen.
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ich habe gelesen, aber ich verstehe nicht, welches Instrument ich genau brauche.
+    </div>
+    <div class="answer">
+        Sie benötigen die Methode <a target="_blank" href="https://www.w3schools.com/python/python_dictionaries_access.asp">get()</a> dictionary.
+        Sie ermöglicht es, einen Wert aus einem Wörterbuch anhand seines Schlüssels zu erhalten:     
+<br />
+<br />
+       <pre class="brush: python">
+some_dict = {'a': 1, 'b': 2}
+some_dict['a'] == some_dict.get('a') --> 1
+        </pre>
+        die Methode 'Get' ist nützlich, weil sie einen Standardwert zurückgeben kann, wenn
+        der Schlüssel im Wörterbuch mit dem zweiten Parameter fehlt: some_dict.get('c', 3)
+        (den Sie in dieser speziellen Aufgabe nicht brauchen) und er kann
+        selbst als Funktionsargument dienen kann. 
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Das ist interessant, aber ich verstehe immer noch nicht, wie man es in dieser Mission verwenden kann.
+    </div>
+    <div class="answer">
+        Da Sie das Maximum an Gegenständen benötigen, müssen Sie auch die Build-in-Funktion verwenden
+       <a target="_blank" href="https://docs.python.org/3/library/functions.html#max">max()</a>,
+        verwenden, die ein zusätzliches Argument 'Schlüssel' mit der Bestellfunktion annehmen kann. 
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ich brauche Hilfe beim Fortfahren mit der Mission.
+    </div>
+    <div class="answer">
+        Sie müssen zwei vorherige Hinweise kombinieren: Verwenden Sie die Funktion max() mit dem ersten
+        argument - Ihrem Wörterbuch - und dem 'Schlüssel'-Argument - 'get' als bestellende
+        funktion:
+<br />
+<br />
+       <pre class="brush: python">
+max(data, key = data.get)
+        </pre>
+        Dieser Ausdruck bedeutet, dass bei der Iteration über die 'Daten' (Schlüssel), für jeden
+        schlüssel eine Ordnungsfunktion berechnet wird: der Wert für diesen Schlüssel wird genommen. Mit
+        max() Funktion werden diese Werte verglichen und das Maximum zurückgegeben.
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Wie sollte also die endgültige Lösung aussehen?
+    </div>
+    <div class="answer">
+        Sie müssen nur die Funktionsdeklaration selbst hinzufügen und das Ergebnis von max() zurückgeben:
+<br />
+<br />
+       <pre class="brush: python">
+def best_stock(data: dict[str, float]) -> str:
+
+    return max(data, key = data.get)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Zeigen Sie mir mehr Lösungen! <br />
+        denn ich will ein echter Python-Ninjaa sein!
+    </div>
+    <div class="answer">
+        Klar, schnapp sie dir!
+       <br />
+        <br />
+       <pre class="brush: python">
+def best_stock(data: dict[str, float]) -> str:
+
+    max_price = 0
+    answer = ''
+    for k, v in data.items():
+        if v> max_price:
+            max_price = v
+            answer = k
+
+    return answer
+        </pre>
+        Dies ist eine klare Schritt-für-Schritt-Lösung, bei der wir über das Wörterbuch iterieren,
+        jeden Wert mit dem vorher deklarierten Wert vergleichen und einen größeren Preis und dessen Ticker speichern.
+       <br />
+        <br />
+       <pre class="brush: python">
+def best_stock(data: dict[str, float]) -> str:
+
+    return max(data, key=data.__getitem__)
+    # or
+    return max(data, key=lambda x: data[x])
+        </pre>
+        Die Hinweislösung kann auch in dieser Form geschrieben werden.
+       <br />
+        <br />
+       <pre class="brush: python">
+from functools import reduce
+
+
+def best_stock(data):
+
+    return reduce(lambda x,y: [x,y][y[1]> x[1]], data.items())[0]
+        </pre>
+        Mit der vorimportierten Funktion reduce nehmen wir die ersten beiden Schlüssel-Wert-Paare, 
+        behalten die mit dem höheren Preis, nehmen das dritte Paar und vergleichen es mit dem vorherigen
+        "Gewinner" und so weiter. Geben Sie den Ticker des verbleibenden Paares zurück.
+       <br />
+        <br />
+        Klicken Sie im Missionsmenü auf "Beste Lösungen" und Sie erhalten noch viel mehr
+        lösungen für diese Mission.
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Danke! Ich weiß und verstehe jetzt mehr! Alles funktioniert bestens!
+    </div>
+    <div class="answer">
+        Freut mich zu hören!
+    </div>
+</div>
+</body>
